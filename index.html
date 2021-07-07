@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+
+<div class="holy-grail-grid">
+    <div class="holy-grail-header">
+        <h2 id="headline">Weather Dashboard</h2>
+    </div>
+    
+    <div class="holy-grail-left">
+        <h3>Search by city</h3>
+        <div id="search-area">
+            <form>
+            <input type="text" id="search" value="Silverdale, WA">
+            <button id="searchButton" class="button">Search</button>
+        </form>
+        </div>
+    </div>
+    
+    <div class="holy-grail-middle">
+        <div id="current-weather">
+            <p id="currentCityName">Current City</p>
+            <p id="currentTemp"><span style="color: gray;">loading...</span></p>
+            <p id="currentWind"><span style="color: gray;">loading...</span></p>
+            <p id="currentHumidity"><span style="color: gray;">loading...</span></p>
+            <p id="currentUV"><span style="color: gray;">loading...</span></p>
+        </div>
+        <!-- In v1.1 build these using JS to minimize HTML -->
+        <div id="forecast">
+            <div class="card">   
+                <div class="card-divider">
+                    <h4 id="day-1-header"></h4>
+                </div>
+                <img id="day-1-image" src="#" width="50px">
+                <div class="card-section">
+                  <p id="day-1-temp">&nbsp;</p>
+                  <p id="day-1-wind">&nbsp;</p>
+                  <p id="day-1-humidity">&nbsp;</p>
+                </div>
+            </div>
+            <div class="card">
+                <img id="day-2-image" src="#" width="50px">
+                <div class="card-section">
+                    <h4 id="day-2-header"></h4>
+                    <p id="day-2-temp"></p>
+                    <p id="day-2-wind"></p>
+                    <p id="day-2-humidity"></p>
+                </div>
+            </div>
+            <div class="card">
+                <img id="day-3-image" src="#" width="50px">
+                <div class="card-section">
+                    <h4 id="day-3-header"></h4>
+                    <p id="day-3-temp"></p>
+                    <p id="day-3-wind"></p>
+                    <p id="day-3-humidity"></p>
+                </div>
+            </div>
+            <div class="card">
+                <img id="day-4-image" src="#" width="50px">
+                <div class="card-section">
+                    <h4 id="day-4-header"></h4>
+                    <p id="day-4-temp"></p>
+                    <p id="day-4-wind"></p>
+                    <p id="day-4-humidity"></p>
+                </div>
+            </div>
+            <div class="card">
+                <img id="day-5-image" src="#" width="50px">
+                <div class="card-section">
+                    <h4 id="day-5-header"></h4>
+                    <p id="day-5-temp"></p>
+                    <p id="day-5-wind"></p>
+                    <p id="day-5-humidity"></p>
+                </div>
+            </div>                
+        </div>
+    </div>
+    
+    <div class="holy-grail-right">
+        <h3>History</h3>
+        <div id="search-history">
+            <ul id="search-history-list"></ul>
+            </div>
+        </ul>
+      </div>
+    
+    <div class="holy-grail-footer">
+        <h3>Thanks to...</h3>
+    </div>
+    
+</div>
+      
+      
+
+
+
+
+
+
+<!-- <div class="container-fluid">
+    <div class="row">
+        <header class="col">
+            <h1>Weather Dashboard</h1>
+        </header>
+        <main class="col">
+            <div id="search-side" class="col col-3">
+                
+            </div>
+            <div id="display-side">
+                
+                <div id="forecast" class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <p>Day One</p>
+                        </div>
+                        <div class="card-body">
+                          <p id="day-1-temp">Text</p>
+                          <p id="day-1-wind"></p>
+                          <p id="day-1-humidity"></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <p>Day Two</p>
+                        </div>
+                        <div class="card-body">
+                            <p id="day-2-temp"></p>
+                            <p id="day-2-wind"></p>
+                            <p id="day-2-humidity"></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <p>Day Three</p>
+                        </div>
+                        <div class="card-body">
+                            <p id="day-3-temp"></p>
+                            <p id="day-3-wind"></p>
+                            <p id="day-3-humidity"></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <p>Day Four</p>
+                        </div>
+                        <div class="card-body">
+                            <p id="day-4-temp"></p>
+                            <p id="day-4-wind"></p>
+                            <p id="day-4-humidity"></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <p>Day Five</p>
+                        </div>
+                        <div class="card-body">
+                            <p id="day-5-temp"></p>
+                            <p id="day-5-wind"></p>
+                            <p id="day-5-humidity"></p>
+                        </div>
+                    </div>                
+                </div>
+            </div>
+        </main>
+    </div> -->
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="./assets/js/script.js"></script>
+</body>
+</html>        
+
