@@ -1,23 +1,8 @@
 // Weather App - Dru Ludwig
+let currentTime = moment().format('MMMM Do YYYY, h:mm:ss a')
+$("#currentTime").text(currentTime)
 
 savedCities()
-
-// Wait for user to submit search
-$( "#searchButton" ).click(function(event) {
-event.preventDefault();
-$("#headline").text("Current Weather for " + document.getElementById("search").value)
-saveSearch();
-geoCode();
-})
-
-//Buttons to view past cities
-$( "#li" ).click(function() {
-    console.log('it heard you')
-    let city = document.target.innerText
-    $("#search").attr("value", city);
-    geoCode()
-})
-
 //Display saved cities
 function savedCities(){
 $("#search-history-list").text("")
@@ -25,9 +10,26 @@ let saveHistory = JSON.parse(localStorage.getItem("savedCities"));
 if (saveHistory !== null){
     for (i = 0; i < saveHistory.length; i++) {
         let city = saveHistory[i]
-        $("#search-history-list").append(`<li>${city}</li>`)
-    }
+        $("#search-history-list").append(`<li><button type="button" class="button history" id="historyCity${i}" value="${city}">${city}</button></li>`)
+    } 
 }}
+
+$( ".history" ).click(function(event) {
+    let city = event.target.value
+    $("#search").attr("value", city);
+    $("#headline").text("Current Weather for " + document.getElementById("search").value)
+    geoCode()
+})
+
+// Wait for user to submit search
+$( "#searchButton" ).click(function() {
+$("#headline").text("Current Weather for " + document.getElementById("search").value)
+saveSearch();
+geoCode();
+})
+
+//Buttons to view past cities
+
 
 function saveSearch() {
 // Retrieve (if any) saved cities and parse them
@@ -55,6 +57,7 @@ fetch(geocodeQuery)
     cityLatitude = (data.results[0].locations[0].displayLatLng.lat)
     cityLongitude = (data.results[0].locations[0].displayLatLng.lng)
     weatherFetch()
+    
 })}
 
 function weatherFetch(){
@@ -139,10 +142,14 @@ fetch(weatherFetchURL)
         let day5text = (data.daily[5].weather[0].description)
         $("#day-5-text").text(day5text)
     })
-})}
+})
+$(".splash").css("visibility", "hidden")
+$(".splash").css("position", "fixed")
+$("#current-weather").css("display", "block")
+}
 
 // Clear button
-$("#clear-button").click(function() {
+$("#clearButton").click(function() {
     let clearDay = confirm ("Are you sure you want to clear all saved cities? \n\nREMINDER: If you clear your browser history, you will clear your saved cities unintentionally.")
        if (clearDay){
            localStorage.clear();

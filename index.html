@@ -18,19 +18,19 @@
     <div class="left">
         <h3>Search by city</h3>
         <div id="search-area">
-            <form>
-            <input type="text" id="search" value="Seattle, WA">
+            <input type="text" id="search">
             <button id="searchButton" class="button">Search</button>
-        </form>
         </div>
     </div>
     
     <div class="middle">
+        <div class="splash"></div>
         <div id="current-weather">
-            <p id="currentTemp"><span style="color: gray;"></span></p>
-            <p id="currentWind"><span style="color: gray;"></span></p>
-            <p id="currentHumidity"><span style="color: gray;"></span></p>
-            <p id="currentUV"><span style="color: gray;"></span></p>
+            <h5><strong>Current Weather as of <span id=currentTime></span></strong></h5>
+            <h5 id="currentTemp"><span style="color: gray;"></span></h5>
+            <h5 id="currentWind"><span style="color: gray;"></span></h5>
+            <h5 id="currentHumidity"><span style="color: gray;"></span></h5>
+            <h5 id="currentUV"><span style="color: gray;"></span></h5>
         </div>
         <!-- In v1.1 build these using JS to minimize HTML -->
         <div id="forecast">
@@ -100,17 +100,19 @@
     <div class="right">
         <h3>History</h3>
         <div id="search-history">
+            
             <ul id="search-history-list">
-                
+                <li></li>
             </ul>
+        
             <!-- Clear Button -->
-            <button id=clear-button class="button alert">CLEAR ALL</button>
+            <button id=clearButton class="button alert">CLEAR ALL</button>
             </div>
         </ul>
       </div>
     
     <div class="footer">
-        <h3>Thanks to...</h3>
+        <h3>&nbsp;</h3>
     </div>
     
 </div>
