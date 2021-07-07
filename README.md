@@ -11,4 +11,8 @@
 
 
 ## Notes
-This app contains a bug that 
+This app contains a bug that - after many hours - I simply accepted into my life. The buttons in the history list are only listened to upon page load. If the user searches for a city, the history buttons cease to cooperate.
+
+
+## Screenshot
+<img src="./assets/images/screenshot-weather.png">
