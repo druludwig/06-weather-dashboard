@@ -22,7 +22,8 @@ $( ".history" ).click(function(event) {
 })
 
 // Wait for user to submit search
-$( "#searchButton" ).click(function() {
+$( "#searchButton" ).click(function(event) {
+event.preventDefault()   
 $("#headline").text("Current Weather for " + document.getElementById("search").value)
 saveSearch();
 geoCode();
@@ -70,7 +71,7 @@ fetch(weatherFetchURL)
         let temp = Math.round(data.current.temp);
         $( "#currentTemp" ).text(`Temperature: ${temp} deg F`);
         let windSpeed = Math.round(data.current.wind_speed);
-        $( "#currentWind" ).text(`Wind: ${windSpeed}mph`);
+        $( "#currentWind" ).text(`Wind: ${windSpeed} mph`);
         let humidity = data.current.humidity;
         $( "#currentHumidity" ).text(`Humidity: ${humidity}%`);
         let uv = Math.round(data.current.uvi);
@@ -82,7 +83,7 @@ fetch(weatherFetchURL)
         let day1temp = Math.round(data.daily[1].temp.day)
         $("#day-1-temp").text(`Temp: ${day1temp}°F`)
         let day1wind = Math.round(data.daily[1].wind_speed)
-        $("#day-1-wind").text(`Wind: ${day1wind}mph`)
+        $("#day-1-wind").text(`Wind: ${day1wind} mph`)
         let day1humidity = Math.round(data.daily[1].humidity)
         $("#day-1-humidity").text(`Humidity: ${day1humidity}%`)
         let day1image = (data.daily[1].weather[0].icon)
@@ -95,7 +96,7 @@ fetch(weatherFetchURL)
         let day2temp = Math.round(data.daily[2].temp.day)
         $("#day-2-temp").text(`Temp: ${day2temp}°F`)
         let day2wind = Math.round(data.daily[2].wind_speed)
-        $("#day-2-wind").text(`Wind: ${day2wind}mph`)
+        $("#day-2-wind").text(`Wind: ${day2wind} mph`)
         let day2humidity = Math.round(data.daily[2].humidity)
         $("#day-2-humidity").text(`Humidity: ${day2humidity}%`)
         let day2image = (data.daily[2].weather[0].icon)
@@ -108,7 +109,7 @@ fetch(weatherFetchURL)
         let day3temp = Math.round(data.daily[3].temp.day)
         $("#day-3-temp").text(`Temp: ${day3temp}°F`)
         let day3wind = Math.round(data.daily[3].wind_speed)
-        $("#day-3-wind").text(`Wind: ${day3wind}mph`)
+        $("#day-3-wind").text(`Wind: ${day3wind} mph`)
         let day3humidity = Math.round(data.daily[3].humidity)
         $("#day-3-humidity").text(`Humidity: ${day3humidity}%`)
         let day3image = (data.daily[3].weather[0].icon)
@@ -121,7 +122,7 @@ fetch(weatherFetchURL)
         let day4temp = Math.round(data.daily[4].temp.day)
         $("#day-4-temp").text(`Temp: ${day4temp}°F`)
         let day4wind = Math.round(data.daily[4].wind_speed)
-        $("#day-4-wind").text(`Wind: ${day4wind}mph`)
+        $("#day-4-wind").text(`Wind: ${day4wind} mph`)
         let day4humidity = Math.round(data.daily[4].humidity)
         $("#day-4-humidity").text(`Humidity: ${day4humidity}%`)
         let day4image = (data.daily[4].weather[0].icon)
@@ -134,7 +135,7 @@ fetch(weatherFetchURL)
         let day5temp = Math.round(data.daily[5].temp.day)
         $("#day-5-temp").text(`Temp: ${day5temp}°F`)
         let day5wind = Math.round(data.daily[5].wind_speed)
-        $("#day-5-wind").text(`Wind: ${day5wind}mph`)
+        $("#day-5-wind").text(`Wind: ${day5wind} mph`)
         let day5humidity = Math.round(data.daily[5].humidity)
         $("#day-5-humidity").text(`Humidity: ${day5humidity}%`)
         let day5image = (data.daily[5].weather[0].icon)
