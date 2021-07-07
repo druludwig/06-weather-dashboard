@@ -1,16 +1,7 @@
-// Global variables
-let cityLatitude;
-let cityLongitude;
+// Weather App - Dru Ludwig
 
+savedCities()
 
-//Display saved cities on load
-let saveHistory = JSON.parse(localStorage.getItem("savedCities"));
-if (saveHistory !== null){
-    for (i = 0; i < saveHistory.length; i++) {
-        let city = saveHistory[i]
-        $("#search-history-list").append(`<li>${city}</li>`)
-    }
-}
 // Wait for user to submit search
 $( "#searchButton" ).click(function(event) {
 event.preventDefault();
@@ -18,6 +9,25 @@ $("#headline").text("Current Weather for " + document.getElementById("search").v
 saveSearch();
 geoCode();
 })
+
+//Buttons to view past cities
+$( "#li" ).click(function() {
+    console.log('it heard you')
+    let city = document.target.innerText
+    $("#search").attr("value", city);
+    geoCode()
+})
+
+//Display saved cities
+function savedCities(){
+$("#search-history-list").text("")
+let saveHistory = JSON.parse(localStorage.getItem("savedCities"));
+if (saveHistory !== null){
+    for (i = 0; i < saveHistory.length; i++) {
+        let city = saveHistory[i]
+        $("#search-history-list").append(`<li>${city}</li>`)
+    }
+}}
 
 function saveSearch() {
 // Retrieve (if any) saved cities and parse them
@@ -28,6 +38,7 @@ if(saveHistory == null) saveHistory = [];
     // Save the list back to local storage
     saveHistory.push(search);
     localStorage.setItem("savedCities", JSON.stringify(saveHistory));
+    savedCities()
 };
 
 function geoCode(){
@@ -73,6 +84,8 @@ fetch(weatherFetchURL)
         $("#day-1-humidity").text(`Humidity: ${day1humidity}%`)
         let day1image = (data.daily[1].weather[0].icon)
         $("#day-1-image").attr("src", `http://openweathermap.org/img/wn/${day1image}@2x.png`)
+        let day1text = (data.daily[1].weather[0].description)
+        $("#day-1-text").text(day1text)
         //2 Days after today
         let day2header = moment().add(2, 'days').format('dddd')
         $("#day-2-header").text(day2header)
@@ -84,7 +97,11 @@ fetch(weatherFetchURL)
         $("#day-2-humidity").text(`Humidity: ${day2humidity}%`)
         let day2image = (data.daily[2].weather[0].icon)
         $("#day-2-image").attr("src", `http://openweathermap.org/img/wn/${day2image}@2x.png`)
+        let day2text = (data.daily[2].weather[0].description)
+        $("#day-2-text").text(day2text)
         //3 Days after today
+        let day3header = moment().add(3, 'days').format('dddd')
+        $("#day-3-header").text(day3header)
         let day3temp = Math.round(data.daily[3].temp.day)
         $("#day-3-temp").text(`Temp: ${day3temp}°F`)
         let day3wind = Math.round(data.daily[3].wind_speed)
@@ -93,7 +110,11 @@ fetch(weatherFetchURL)
         $("#day-3-humidity").text(`Humidity: ${day3humidity}%`)
         let day3image = (data.daily[3].weather[0].icon)
         $("#day-3-image").attr("src", `http://openweathermap.org/img/wn/${day3image}@2x.png`)
+        let day3text = (data.daily[3].weather[0].description)
+        $("#day-3-text").text(day3text)
         //4 Days after today
+        let day4header = moment().add(4, 'days').format('dddd')
+        $("#day-4-header").text(day4header)
         let day4temp = Math.round(data.daily[4].temp.day)
         $("#day-4-temp").text(`Temp: ${day4temp}°F`)
         let day4wind = Math.round(data.daily[4].wind_speed)
@@ -102,7 +123,11 @@ fetch(weatherFetchURL)
         $("#day-4-humidity").text(`Humidity: ${day4humidity}%`)
         let day4image = (data.daily[4].weather[0].icon)
         $("#day-4-image").attr("src", `http://openweathermap.org/img/wn/${day4image}@2x.png`)
+        let day4text = (data.daily[4].weather[0].description)
+        $("#day-4-text").text(day4text)
         //5 Days after today
+        let day5header = moment().add(5, 'days').format('dddd')
+        $("#day-5-header").text(day5header)
         let day5temp = Math.round(data.daily[5].temp.day)
         $("#day-5-temp").text(`Temp: ${day5temp}°F`)
         let day5wind = Math.round(data.daily[5].wind_speed)
@@ -111,8 +136,17 @@ fetch(weatherFetchURL)
         $("#day-5-humidity").text(`Humidity: ${day5humidity}%`)
         let day5image = (data.daily[5].weather[0].icon)
         $("#day-5-image").attr("src", `http://openweathermap.org/img/wn/${day5image}@2x.png`)
-
-
-
+        let day5text = (data.daily[5].weather[0].description)
+        $("#day-5-text").text(day5text)
     })
 })}
+
+// Clear button
+$("#clear-button").click(function() {
+    let clearDay = confirm ("Are you sure you want to clear all saved cities? \n\nREMINDER: If you clear your browser history, you will clear your saved cities unintentionally.")
+       if (clearDay){
+           localStorage.clear();
+           location.reload();
+       } 
+})
+

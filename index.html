@@ -10,28 +10,27 @@
 </head>
 <body>
 
-<div class="holy-grail-grid">
-    <div class="holy-grail-header">
+<div class="grid">
+    <div class="header">
         <h2 id="headline">Weather Dashboard</h2>
     </div>
     
-    <div class="holy-grail-left">
+    <div class="left">
         <h3>Search by city</h3>
         <div id="search-area">
             <form>
-            <input type="text" id="search" value="Silverdale, WA">
+            <input type="text" id="search" value="Seattle, WA">
             <button id="searchButton" class="button">Search</button>
         </form>
         </div>
     </div>
     
-    <div class="holy-grail-middle">
+    <div class="middle">
         <div id="current-weather">
-            <p id="currentCityName">Current City</p>
-            <p id="currentTemp"><span style="color: gray;">loading...</span></p>
-            <p id="currentWind"><span style="color: gray;">loading...</span></p>
-            <p id="currentHumidity"><span style="color: gray;">loading...</span></p>
-            <p id="currentUV"><span style="color: gray;">loading...</span></p>
+            <p id="currentTemp"><span style="color: gray;"></span></p>
+            <p id="currentWind"><span style="color: gray;"></span></p>
+            <p id="currentHumidity"><span style="color: gray;"></span></p>
+            <p id="currentUV"><span style="color: gray;"></span></p>
         </div>
         <!-- In v1.1 build these using JS to minimize HTML -->
         <div id="forecast">
@@ -39,7 +38,8 @@
                 <div class="card-divider">
                     <h4 id="day-1-header"></h4>
                 </div>
-                <img id="day-1-image" src="#" width="50px">
+                <img id="day-1-image" class="icon" width="50px">
+                <p class="small" id="day-1-text"></p>
                 <div class="card-section">
                   <p id="day-1-temp">&nbsp;</p>
                   <p id="day-1-wind">&nbsp;</p>
@@ -47,36 +47,48 @@
                 </div>
             </div>
             <div class="card">
-                <img id="day-2-image" src="#" width="50px">
-                <div class="card-section">
+                <div class="card-divider">
                     <h4 id="day-2-header"></h4>
+                </div>
+                <img id="day-2-image" class="icon" width="50px">
+                <p class="small" id="day-2-text"></p>
+                <div class="card-section">
                     <p id="day-2-temp"></p>
                     <p id="day-2-wind"></p>
                     <p id="day-2-humidity"></p>
                 </div>
             </div>
             <div class="card">
-                <img id="day-3-image" src="#" width="50px">
-                <div class="card-section">
+                <div class="card-divider">
                     <h4 id="day-3-header"></h4>
+                </div>
+                <img id="day-3-image" class="icon" width="50px">
+                <p class="small" id="day-3-text"></p>
+                <div class="card-section">
                     <p id="day-3-temp"></p>
                     <p id="day-3-wind"></p>
                     <p id="day-3-humidity"></p>
                 </div>
             </div>
             <div class="card">
-                <img id="day-4-image" src="#" width="50px">
-                <div class="card-section">
+                <div class="card-divider">
                     <h4 id="day-4-header"></h4>
+                </div>
+                <img id="day-4-image" class="icon" width="50px">                    
+                <p class="small" id="day-4-text"></p>
+                <div class="card-section">
                     <p id="day-4-temp"></p>
                     <p id="day-4-wind"></p>
                     <p id="day-4-humidity"></p>
                 </div>
             </div>
             <div class="card">
-                <img id="day-5-image" src="#" width="50px">
-                <div class="card-section">
+                <div class="card-divider">
                     <h4 id="day-5-header"></h4>
+                </div>
+                <img id="day-5-image" class="icon" width="50px">                    
+                <p class="small" id="day-5-text"></p>
+                <div class="card-section">
                     <p id="day-5-temp"></p>
                     <p id="day-5-wind"></p>
                     <p id="day-5-humidity"></p>
@@ -85,99 +97,25 @@
         </div>
     </div>
     
-    <div class="holy-grail-right">
+    <div class="right">
         <h3>History</h3>
         <div id="search-history">
-            <ul id="search-history-list"></ul>
+            <ul id="search-history-list">
+                
+            </ul>
+            <!-- Clear Button -->
+            <button id=clear-button class="button alert">CLEAR ALL</button>
             </div>
         </ul>
       </div>
     
-    <div class="holy-grail-footer">
+    <div class="footer">
         <h3>Thanks to...</h3>
     </div>
     
 </div>
       
-      
-
-
-
-
-
-
-<!-- <div class="container-fluid">
-    <div class="row">
-        <header class="col">
-            <h1>Weather Dashboard</h1>
-        </header>
-        <main class="col">
-            <div id="search-side" class="col col-3">
-                
-            </div>
-            <div id="display-side">
-                
-                <div id="forecast" class="col">
-                    <div class="card">
-                        <div class="card-header">
-                            <p>Day One</p>
-                        </div>
-                        <div class="card-body">
-                          <p id="day-1-temp">Text</p>
-                          <p id="day-1-wind"></p>
-                          <p id="day-1-humidity"></p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <p>Day Two</p>
-                        </div>
-                        <div class="card-body">
-                            <p id="day-2-temp"></p>
-                            <p id="day-2-wind"></p>
-                            <p id="day-2-humidity"></p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <p>Day Three</p>
-                        </div>
-                        <div class="card-body">
-                            <p id="day-3-temp"></p>
-                            <p id="day-3-wind"></p>
-                            <p id="day-3-humidity"></p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <p>Day Four</p>
-                        </div>
-                        <div class="card-body">
-                            <p id="day-4-temp"></p>
-                            <p id="day-4-wind"></p>
-                            <p id="day-4-humidity"></p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <p>Day Five</p>
-                        </div>
-                        <div class="card-body">
-                            <p id="day-5-temp"></p>
-                            <p id="day-5-wind"></p>
-                            <p id="day-5-humidity"></p>
-                        </div>
-                    </div>                
-                </div>
-            </div>
-        </main>
-    </div> -->
-
-
-
-
-
-
+    
 <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
