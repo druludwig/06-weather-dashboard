@@ -1,5 +1,5 @@
 // Weather App - Dru Ludwig
-let currentTime = moment().format('MMMM Do YYYY, h:mm:ss a')
+let currentTime = moment().format('MMMM Do YYYY, h:mm a')
 $("#currentTime").text(currentTime)
 
 savedCities()
@@ -15,6 +15,7 @@ if (saveHistory !== null){
 }}
 
 $( ".history" ).click(function(event) {
+    console.log('it got this far')
     let city = event.target.value
     $("#search").attr("value", city);
     $("#headline").text("Current Weather for " + document.getElementById("search").value)
