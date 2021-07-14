@@ -48,7 +48,7 @@ if(saveHistory == null) saveHistory = [];
 function geoCode(){
 let cityEntry = $( "#search" ).val();
 let cityEncoded = cityEntry.replace(" ", "%20");
-let geocodeQuery = "http://open.mapquestapi.com/geocoding/v1/address?key=9mr2uK3G1XHwPf6mYwHSQ4MpHV4O2aGG&location=" + cityEncoded;
+let geocodeQuery = "https://open.mapquestapi.com/geocoding/v1/address?key=9mr2uK3G1XHwPf6mYwHSQ4MpHV4O2aGG&location=" + cityEncoded;
 //Send compound URL to geocode API
 fetch(geocodeQuery)
 .then(function (response) {
